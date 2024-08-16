@@ -1,0 +1,44 @@
+<odoo>
+    <!-- Hospital Management Kategorisi -->
+    <record id="module_category_hospital" model="ir.module.category">
+        <field name="name">Hospital Management</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Hasta (Patient) Grubu -->
+    <record id="group_hospital_patient" model="res.groups">
+        <field name="name">Hospital Patient</field>
+        <field name="category_id" ref="hospital_automation.module_category_hospital"/>
+    </record>
+
+    <!-- Doktor (Doctor) Grubu -->
+    <record id="group_hospital_doctor" model="res.groups">
+        <field name="name">Hospital Doctor</field>
+        <field name="category_id" ref="hospital_automation.module_category_hospital"/>
+    </record>
+
+    <!-- Admin Grubu -->
+    <record id="group_hospital_admin" model="res.groups">
+        <field name="name">Hospital Admin</field>
+        <field name="category_id" ref="hospital_automation.module_category_hospital"/>
+    </record>
+
+    <!-- Erişim Kuralları -->
+    <record id="access_hospital_appointment_doctor" model="ir.model.access">
+        <field name="name">access_hospital_appointment_doctor</field>
+        <field name="model_id" ref="model_hospital_appointment"/>
+        <field name="group_id" ref="hospital_automation.group_hospital_doctor"/>
+    </record>
+
+    <record id="access_hospital_appointment_patient" model="ir.model.access">
+        <field name="name">access_hospital_appointment_patient</field>
+        <field name="model_id" ref="model_hospital_appointment"/>
+        <field name="group_id" ref="hospital_automation.group_hospital_patient"/>
+    </record>
+
+    <record id="access_hospital_appointment_admin" model="ir.model.access">
+        <field name="name">access_hospital_appointment_admin</field>
+        <field name="model_id" ref="model_hospital_appointment"/>
+        <field name="group_id" ref="hospital_automation.group_hospital_admin"/>
+    </record>
+</odoo>

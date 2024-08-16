@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_hospital_prescription_form" model="ir.ui.view">
+        <field name="name">hospital.prescription.form</field>
+        <field name="model">hospital.prescription</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Prescription">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="doctor_department_id"/>  <!-- Doktor departmanını burada gösteriyoruz -->
+                        <field name="date"/>
+                    </group>
+                    <group>
+                        <field name="medication_ids">
+                            <tree editable="bottom">
+                                <field name="prescription_id" column_invisible="1"/>
+                                <field name="name"/>
+                                <field name="dosage"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_prescription_tree" model="ir.ui.view">
+        <field name="name">hospital.prescription.tree</field>
+        <field name="model">hospital.prescription</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Prescriptions">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="doctor_department_id"/>  <!-- Doktor departmanını burada gösteriyoruz -->
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hospital_prescription" model="ir.actions.act_window">
+        <field name="name">Prescriptions</field>
+        <field name="res_model">hospital.prescription</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hospital_prescription_menu" name="Prescriptions" parent="hospital_prescription_root_menu" action="action_hospital_prescription"/>
+</odoo>

@@ -1,0 +1,49 @@
+<odoo>
+
+    <record id="action_report_prescription" model="ir.actions.report">
+          <field name="name">Prescription Report</field>
+          <field name="model">hospital.prescription</field>
+          <field name="report_type">qweb-pdf</field>
+          <field name="report_name">hospital_automation.report_prescription_document</field>
+          <field name="report_file">hospital_automation.report_prescription_document</field>
+          <field name="print_report_name">'Prescription - %s' % (object.name)</field>
+          <field name="binding_model_id" ref="model_hospital_prescription"/>
+          <field name="binding_type">report</field>
+    </record>
+
+
+    <!-- QWeb Şablonu -->
+    <template id="report_prescription_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2>Prescription: <t t-esc="doc.name"/></h2>
+                    <p><strong>Patient:</strong> <t t-esc="doc.patient_id.name"/></p>
+                    <p><strong>Doctor:</strong> <t t-esc="doc.doctor_id.name"/></p>
+                    <p><strong>Department:</strong> <t t-esc="doc.doctor_department_id.name"/></p>
+                    <p><strong>Date:</strong> <t t-esc="doc.date"/></p>
+
+                    <h3>Medications</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Instructions</th>
+                                <th>Dosage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.medication_ids" t-as="medication">
+                                <tr>
+                                    <td><t t-esc="medication.name"/></td>
+                                    <td><t t-esc="medication.instructions"/></td>
+                                    <td><t t-esc="medication.dosage"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

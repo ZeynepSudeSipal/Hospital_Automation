@@ -1,0 +1,21 @@
+<odoo>
+    <!-- Ana Menü Tanımı -->
+    <menuitem id="hospital_main_root_menu" name="Hospital" sequence="1"/>
+
+    <!-- Hasta Menü Öğesi -->
+    <menuitem id="hospital_patient_root_menu" name="Patients" parent="hospital_main_root_menu" sequence="2" groups="hospital_automation.group_hospital_admin,hospital_automation.group_hospital_doctor,hospital_automation.group_hospital_patient"/>
+
+    <!-- Departman Menü Öğesi -->
+    <menuitem id="hospital_department_root_menu" name="Departments" parent="hospital_main_root_menu" sequence="3" groups="hospital_automation.group_hospital_admin"/>
+
+    <!-- Doktor Menü Öğesi -->
+    <menuitem id="hospital_doctor_root_menu" name="Doctors" parent="hospital_main_root_menu" sequence="4" groups="hospital_automation.group_hospital_admin"/>
+
+    <!-- Randevular Menü Öğesi -->
+    <menuitem id="hospital_appointment_root_menu" name="Appointments" parent="hospital_main_root_menu" sequence="5" groups="hospital_automation.group_hospital_admin"/>
+
+    <!-- Reçeteler Menü Öğesi -->
+    <menuitem id="hospital_prescription_root_menu" name="Prescriptions" parent="hospital_main_root_menu" groups="hospital_automation.group_hospital_doctor,hospital_automation.group_hospital_patient,hospital_automation.group_hospital_admin"/>
+
+</odoo>
+

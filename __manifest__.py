@@ -1,0 +1,30 @@
+{
+    'name': 'Hospital Management',
+    'version': '1.0',
+    'summary': 'Hospital appointment and management system',
+    'sequence': 10,
+    'description': """
+        Hospital Management System for handling patient appointments and details.
+    """,
+    'author': 'Zeynep',
+    'website': 'http://localhost:8069/',
+    'depends': ['base','mail'],
+    'data': [
+        'data/hospital_department_data.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'security/hospital_record_rules.xml',
+        'data/initial_data.xml',
+        'views/hospital_menu.xml',
+        'views/hospital_patient_views.xml',
+        'views/hospital_department_views.xml',
+        'views/hospital_doctor_views.xml',
+        'views/hospital_appointment_views.xml',
+        'views/hospital_prescription_views.xml',
+        'report/hospital_prescription_report.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install':False,
+}

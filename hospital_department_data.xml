@@ -1,0 +1,36 @@
+<odoo>
+    <!-- Kulak Burun Boğaz Bölümü -->
+    <record id="department_ent" model="hospital.department">
+        <field name="name">Kulak Burun Boğaz</field>
+    </record>
+
+    <!-- Genel Cerrahi Bölümü -->
+    <record id="department_general_surgery" model="hospital.department">
+        <field name="name">Genel Cerrahi</field>
+    </record>
+
+    <!-- Göz Hastalıkları Bölümü -->
+    <record id="department_ophthalmology" model="hospital.department">
+        <field name="name">Göz Hastalıkları</field>
+    </record>
+
+    <!-- Dahiliye Bölümü -->
+    <record id="department_internal_medicine" model="hospital.department">
+        <field name="name">Dahiliye</field>
+    </record>
+
+    <!-- Nöroloji Bölümü -->
+    <record id="department_neurology" model="hospital.department">
+        <field name="name">Nöroloji</field>
+    </record>
+
+    <!-- Kardiyoloji Bölümü -->
+    <record id="department_cardiology" model="hospital.department">
+        <field name="name">Kardiyoloji</field>
+    </record>
+
+    <!-- Dermatoloji Bölümü -->
+    <record id="department_dermatology" model="hospital.department">
+        <field name="name">Dermatoloji</field>
+    </record>
+</odoo>

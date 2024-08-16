@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Doktorlar Form Görünümü -->
+        <record id="view_hospital_doctor_form" model="ir.ui.view">
+            <field name="name">hospital.doctor.form</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Hospital Doctor">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="department_id"/>
+                            <field name="phone" groups="base.group_system"/> <!-- Adminler için görünür -->
+                            <field name="email" groups="base.group_system"/> <!-- Adminler için görünür -->
+                            <field name="user_id" groups="base.group_system"/>
+                            <field name="image" widget="image" class="o-form_image" options="{'size': [200,200]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Doktorlar Liste Görünümü -->
+        <record id="view_hospital_doctor_tree" model="ir.ui.view">
+            <field name="name">hospital.doctor.tree</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Hospital Doctors">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="phone" groups="base.group_system"/> <!-- Adminler için görünür -->
+                    <field name="email" groups="base.group_system"/> <!-- Adminler için görünür -->
+                    <field name="user_id" groups="base.group_system"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Doktorlar için Eylem -->
+        <record id="action_hospital_doctor" model="ir.actions.act_window">
+            <field name="name">Doctors</field>
+            <field name="res_model">hospital.doctor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('id', '!=', False)]</field>
+        </record>
+
+
+        <!-- Doktorlar Menü Öğesi -->
+        <menuitem id="hospital_doctor_menu" name="Doctors" parent="hospital_doctor_root_menu" action="action_hospital_doctor"/>
+    </data>
+</odoo>
